@@ -79,12 +79,6 @@ public class VariablesPrimitiveTypes {
             //i += 1;
         } while(i < 26);*/
         //Ветвления
-        Scanner sc
-                = new Scanner(System.in);
-
-        System.out.println("Введите целое положительное число: ");
-
-        int quantity = sc.nextInt();
         /*if (2 * 2 == 5) {
             System.out.println("Hello!");
         }*/
@@ -122,18 +116,14 @@ public class VariablesPrimitiveTypes {
         //System.out.println(quantity / 10);
         //Блок if выполнится тогда, когда значение quantity
         // равно 0 или 1, или 2 ... или 10
-        if (quantity >= 0 && quantity <= 10) {
+        /* if (quantity >= 0 && quantity <= 10) {
 
             System.out.println(quantity);
         } else {
 
-        }
-
+        }*/
         //System.out.println(quantity % 10);
         //System.out.println(quantity % 100);
-        int x10 = quantity % 10;
-        int x100 = quantity % 100;
-
         //Задание: используя if и quantity % 100 (получение двух последних
         //цифр введенного числа) сделайте так, чтобы учитывалось и исключение
         //из правила
@@ -141,57 +131,84 @@ public class VariablesPrimitiveTypes {
         //}
         //if (x100 >= 11 && x100 <= 14) {
         //}
-        if (!(x100 < 11) && !(x100 > 14)) {
-            
-            System.out.println("ворон");
-        } else {
-            switch (x10) {
-                case 0: {
-                    System.out.println("ворон");
-                    break;
-                }
-                case 1: {
-                    System.out.println("ворона");
-                    break;
-                }
-                case 2: {
-                    System.out.println("вороны");
-                    break;
-                }
-                case 3: {
-                    System.out.println("вороны");
-                    break;
-                }
-                case 4: {
-                    System.out.println("вороны");
-                    break;
-                }
-                case 5: {
-                    System.out.println("ворон");
-                    break;
-                }
-                case 6: {
-                    System.out.println("ворон");
-                    break;
-                }
-                case 7: {
-                    System.out.println("ворон");
-                    break;
-                }
-                case 8: {
-                    System.out.println("ворон");
-                    break;
-                }
-                case 9: {
-                    System.out.println("ворон");
-                    break;
-                }
-                default: {
-                    System.out.println("Вы ввели что-то непредвиденное");
-                }
-            }
-        }
+        Scanner sc
+                = new Scanner(System.in);
 
+        do {
+
+            System.out.println("Введите целое положительное число или exit для выхода: ");
+
+            //Ожидаем целое число из консоли
+            //int quantity = sc.nextInt();
+            //Ожидаем строку из консоли
+            String quantityString = sc.nextLine();
+            if (!quantityString.equals("exit")) {
+
+                if (quantityString.matches("[0-9]{1,}")) {
+
+                    int quantity = Integer.valueOf(quantityString);
+                    int x10 = quantity % 10;
+                    int x100 = quantity % 100;
+
+                    if (!(x100 < 11) && !(x100 > 14)) {
+
+                        System.out.println("ворон");
+                    } else {
+                        switch (x10) {
+                            case 0: {
+                                System.out.println("ворон");
+                                break;
+                            }
+                            case 1: {
+                                System.out.println("ворона");
+                                break;
+                            }
+                            case 2: {
+                                System.out.println("вороны");
+                                break;
+                            }
+                            case 3: {
+                                System.out.println("вороны");
+                                break;
+                            }
+                            case 4: {
+                                System.out.println("вороны");
+                                break;
+                            }
+                            case 5: {
+                                System.out.println("ворон");
+                                break;
+                            }
+                            case 6: {
+                                System.out.println("ворон");
+                                break;
+                            }
+                            case 7: {
+                                System.out.println("ворон");
+                                break;
+                            }
+                            case 8: {
+                                System.out.println("ворон");
+                                break;
+                            }
+                            case 9: {
+                                System.out.println("ворон");
+                                break;
+                            }
+                            default: {
+                                System.out.println("Вы ввели что-то непредвиденное");
+                            }
+                        }
+                    }
+                } else {
+                    System.out.println("Введено не целое и/или отрицательное число!");
+                    continue;
+                }
+            } else {
+
+                break;
+            }
+        } while (true);
     }
 
 }
